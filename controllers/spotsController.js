@@ -2,8 +2,8 @@ const spotsDB = require('../db/spots.js');
 
 const createSpot = async (req, res) => {
     try {
-        const { name, type, cost, has_wifi } = req.body;
-        const result = await spotsDB.createSpot({name, type, cost, has_wifi});
+        const { name, type, cost, hasWifi } = req.body;
+        const result = await spotsDB.createSpot({name, type, cost, has_wifi: hasWifi});
         res.status(201).json(result.rows[0]);
     }
     catch (err){
@@ -18,7 +18,7 @@ const getSpots = async (req, res) => {
 
 const getSpotById = async (req, res) => {
     try {
-        const { id } = req.body;
+        const { id } = req.params;
         const result = await spotsDB.getSpotById({id});
         res.status(201).json(result.rows[0]);
     }

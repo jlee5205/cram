@@ -5,6 +5,8 @@ const PORT = 3000
 app.use(express.json())
 // app.use(express.urlencoded())
 app.use('/api/users', require('./routes/users'));
+app.use('/api/spots', require('./routes/spots'));
+app.use('/api/reviews', require('./routes/reviews'));
 
 app.get('/', (req, res) => {
     res.json({info: 'Hello, World'})

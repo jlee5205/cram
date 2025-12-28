@@ -1,10 +1,10 @@
 const pool = require('./pool');
 
 const createSpot = async (spot) => {
-    const { name, type, cost, hasWifi } = spot;
+    const { name, type, cost, has_wifi } = spot;
     return pool.query(
-        'INSERT INTO spots (name, type, cost, hasWifi) VALUES ($1, $2, $3, $4)',
-        [name, type, cost, hasWifi]
+        'INSERT INTO spots (name, type, cost, has_wifi) VALUES ($1, $2, $3, $4)',
+        [name, type, cost, has_wifi]
     );
 }
 
@@ -16,7 +16,7 @@ const getSpots = async () => {
             s.id,
             s.name,
             COUNT(r.id) as review_count,
-            COALSCE(AVG(r.rating), 0) as avg_rating 
+            COALESCE(AVG(r.rating), 0) as avg_rating 
         FROM spots s
         LEFT JOIN reviews r ON r.spot_id = s.id
         GROUP BY s.id, s.name
