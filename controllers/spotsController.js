@@ -4,9 +4,12 @@ const createSpot = async (req, res) => {
     try {
         const { name, type, cost, hasWifi } = req.body;
         const result = await spotsDB.createSpot({name, type, cost, has_wifi: hasWifi});
-        res.status(201).json(result.rows[0]);
+        console.log("sucesfully created a spot in the db");
+        console.log(result.rows[0]);
+        res.status(200).json(result.rows[0]);
     }
     catch (err){
+        console.error("POST /api/spots failed:", err);
         res.status(500).json({error: err.message});
     }
 }

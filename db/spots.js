@@ -3,7 +3,7 @@ const pool = require('./pool');
 const createSpot = async (spot) => {
     const { name, type, cost, has_wifi } = spot;
     return pool.query(
-        'INSERT INTO spots (name, type, cost, has_wifi) VALUES ($1, $2, $3, $4)',
+        'INSERT INTO spots (name, type, cost, has_wifi) VALUES ($1, $2, $3, $4) RETURNING *',
         [name, type, cost, has_wifi]
     );
 }

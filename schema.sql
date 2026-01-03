@@ -1,5 +1,7 @@
 -- Users, Study Spots, Reviews
 
+CREATE TYPE location_type AS ENUM ('Cafe', 'Library', 'Park');
+
 -- Create a 'Users' table
 CREATE TABLE IF NOT EXISTS users(
     id uuid PRIMARY KEY, --interal db identifier
@@ -12,7 +14,7 @@ CREATE TABLE IF NOT EXISTS users(
 CREATE TABLE IF NOT EXISTS spots(
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name text UNIQUE NOT NULL,
-    type text UNIQUE NOT NULL,
+    type location_type NOT NULL,
     cost text NOT NULL,
     has_wifi boolean NOT NULL
 );

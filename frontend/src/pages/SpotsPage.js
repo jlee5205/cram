@@ -15,8 +15,11 @@ function SpotsPage(){
     }, []);
 
     const handleCreateSpot = async (spot) =>{
+        console.log("handle spot being called");
         try{
             const newSpot = await createSpot(spot);
+            console.log("we created spot, so we updating");
+            console.log(newSpot);
             setSpots(prev => [...prev, newSpot]);
         } catch(err){
             console.error("Create failed", err);

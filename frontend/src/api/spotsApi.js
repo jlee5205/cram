@@ -1,6 +1,7 @@
 const BASE_URL = "http://localhost:3000/api/spots";
 
 export const getSpots = async () => {
+    console.log("RUNNING IN:", typeof window === 'undefined' ? 'SERVER' : 'BROWSER');
     console.log(BASE_URL);
     const res = await fetch(BASE_URL);
     if (!res.ok) throw new Error("failed to fetch spots");
@@ -14,9 +15,8 @@ export const getSpotById = async (id) => {
 }
 
 export const createSpot = async (spot) => {
-    console.log(BASE_URL);
-    let hm = await fetch(BASE_URL);
-    console.log(hm);
+    console.log("the spot is");
+    console.log(spot);
     try {
         const res = await fetch(BASE_URL, {
             method : "POST",
