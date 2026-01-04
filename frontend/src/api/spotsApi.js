@@ -7,8 +7,6 @@ export const getSpots = async () => {
 }
 
 export const getSpotById = async (id) => {
-    console.log("Da id is");
-    console.log(id);
     const res = await fetch(`${BASE_URL}/${id}`);
     if (!res.ok) throw new Error(`failed to fetch spot ${id}`);
     return res.json();

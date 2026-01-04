@@ -34,11 +34,15 @@ function SpotDetailsPage() {
     };
     if (loading) return <p> Loading...</p>
     if (!spot) return <p> Spot not found </p>
+    const avgRating =
+    reviews.length > 0
+      ? reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length
+      : 0; // default to 0 if no reviews
 
     return (
         <div>
             <h1> {spot.name} </h1>
-            <p> {spot.type} | {spot.cost} | Wifi: {spot.has_wifi ? "Yes" : "No" } </p>
+            <p> {spot.type} | {spot.cost} | Wifi: {spot.has_wifi ? "Yes" : "No" } | Average Rating: {avgRating} </p>
             <h2> Reviews</h2>
             {reviews.map(r => (
                 <div key={r.id}>
