@@ -5,7 +5,6 @@ const createSpot = async (req, res) => {
         const { name, type, cost, hasWifi } = req.body;
         const result = await spotsDB.createSpot({name, type, cost, has_wifi: hasWifi});
         console.log("sucesfully created a spot in the db");
-        console.log(result.rows[0]);
         res.status(200).json(result.rows[0]);
     }
     catch (err){

@@ -1,8 +1,11 @@
+//nested router from spots router
 const express = require("express");
 const controller = require('../controllers/reviewsController.js');
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
-router.get('/:spot_id', controller.getReviews);
+// considering GET/POST /api/spots/:spotId/reviews
+router.get('/', controller.getReviews);
+
 router.post('/', controller.createReview);
 
 module.exports = router;

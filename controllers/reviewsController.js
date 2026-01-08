@@ -9,8 +9,9 @@ const reviewsDB = require('../db/reviews.js');
 // UNIQUE (user_id, spot_id)
 const createReview = async (req, res) => {
     try {
+        const { spotId } = req.params;
         const { user_id, spot_id, rating, comment } = req.body;
-        const result = await reviewsDB.createReview({user_id, spot_id, rating, comment});
+        const result = await reviewsDB.createReview({user_id, spot_id : spotId, rating, comment});
         res.status(201).json(result.rows[0]);
     }
     catch (err){
@@ -20,8 +21,8 @@ const createReview = async (req, res) => {
 
 const getReviews = async (req, res) => {
     try {
-        const { spot_id } = req.params;
-        const result = await reviewsDB.getReviews({spot_id});
+        const { spotId } = req.params;
+        const result = await reviewsDB.getReviews({spot_id : spotId});
         res.json(result.rows);
     }
     catch (err){

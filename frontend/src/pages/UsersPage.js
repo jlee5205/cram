@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getUsers, createUser } from "../api/usersApi";
 
-import CreateUserForm from "../components/CreateUserForm";
+import SignupUserForm from "../components/SignupUserForm";
 
 function UsersPage(){
     const [users, setUsers] = useState([]);
@@ -24,7 +24,7 @@ function UsersPage(){
     return (
         <>
             <h1> "UsersPage"</h1>
-            <CreateUserForm onCreate={handleCreateUser}/>
+            <SignupUserForm onCreate={handleCreateUser}/>
         </>
     )
 }

@@ -12,6 +12,7 @@ app.use(express.json());
 app.use('/api/users', require('./routes/users'));
 app.use('/api/spots', require('./routes/spots'));
 app.use('/api/reviews', require('./routes/reviews'));
+app.use('/api/auth', require('./routes/auth'));
 
 app.get('/', (req, res) => {
     res.json({info: 'Hello, World'})

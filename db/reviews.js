@@ -5,7 +5,7 @@ const createReview = async (review) => {
     return pool.query(
         `INSERT INTO reviews
         (user_id, spot_id, rating, comment)
-        VALUES ($1, $2, $3, $4)`,
+        VALUES ($1, $2, $3, $4) RETURNING *`,
         [user_id, spot_id, rating, comment]
     );
 }
