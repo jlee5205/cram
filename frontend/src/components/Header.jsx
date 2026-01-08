@@ -10,21 +10,21 @@ function Header( {user, setUser}) {
     }
 
     return (
-        <header className="p-4 bg-gray-800">
+        <header className="p-4 bg-gray-300">
             <Link to="/spots" className="font-bold text-xl">
                 Listed Spots
             </Link>
             <nav>
                 {user ? (
                     <div>
-                        <span>Welcome, {user.username}</span>
-                        <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded hover:bg-red-600">
+                        <span>Welcome, {user.username} </span>
+                        <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded hover:bg-red-500">
                             Logout
                         </button>
                     </div>
                 ) : (
                     <div>
-                        <Link to="/login" className="hover:underline"> Login </Link>
+                        <Link to="/login" className="flex justify-end hover:underline"> Login </Link>
                         <Link to="/signup" className="hover:underline"> Signup </Link>
                     </div>
                 )}

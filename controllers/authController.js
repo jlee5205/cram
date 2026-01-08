@@ -39,11 +39,15 @@ const login = async (req, res) => {
         if (result.rows.length === 0) {
             return res.status(401).json({ message: "Invalid credentials" });
         }
-        
+        const user = result.rows[0];
         //TODO: validate the password
-        console.log(" i am here");
-        console.log(result);
-        res.status(200).json(result);
+        res.status(200).json({
+            user: {
+                id: user.id,
+                username: user.username,
+                email: user.email
+            }
+        });
     } catch (err) {
         console.log( "Failed to login up user", err);
         res.status(500).json({ message: "Server error" });

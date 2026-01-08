@@ -10,15 +10,15 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 
 function App() {
-  const [users, setUser] = useState(null);
+  const [user, setUser] = useState(null);
   return (
     <Router>
-      <Header user={users} setUser={setUser}/>
+      <Header user={user} setUser={setUser}/>
       <Routes>
         <Route path="/spots" element={<SpotsPage/>} />
         <Route path="/spots/:spotId" element={<SpotDetailsPage/>} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/signup" element={<Signup/>} />
+        <Route path="/login" element={<Login setUser={setUser}/>} />
+        <Route path="/signup" element={<Signup setUser={setUser}/>} />
       </Routes>
     </Router>
   );

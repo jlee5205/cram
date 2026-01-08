@@ -1,8 +1,10 @@
 import { useState } from "react";
 import AuthForm from "./AuthForm";
 import { signupUser } from "../api/authApi";
+import { useNavigate } from "react-router-dom";
 
-function SignupUserForm( {onCreate} ){
+function SignupUserForm( {setUser} ){
+    const navigate = useNavigate();
     const [form, setForm] = useState({
        username: '',
        email: '',
@@ -23,10 +25,11 @@ function SignupUserForm( {onCreate} ){
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            await signupUser(form);
-            alert("User created!");
+            const user = await signupUser(form);
+            setUser(user);
             setSuccess(true);
             setError(null);
+            navigate('/spots');
         } catch(err){
             console.log("error", err);
             setError("Signup failed. Please try again.");

@@ -1,9 +1,9 @@
 import SignupUserForm from "../components/SignupUserForm";
 
-function Signup() {
+function Signup( {setUser} ) {
     return (
         <div>
-            <SignupUserForm/>
+            <SignupUserForm setUser={setUser}/>
         </div>
     )
 }

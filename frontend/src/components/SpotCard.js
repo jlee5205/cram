@@ -1,8 +1,7 @@
 function SpotCard({spot}){
     return (
         <li> 
-            <h3> {spot.name} </h3>
-            <p> ⭐ {spot.avgRating} </p>
+            <h3> {spot.name} ⭐ {spot.avgRating} </h3>
         </li>
     );
 }

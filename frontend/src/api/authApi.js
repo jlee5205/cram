@@ -39,7 +39,8 @@ export const loginUser = async (credentials) => {
             body: JSON.stringify( {email, password} )
         })
         if (!res.ok) throw new Error("Failed to login user");
-        return res.json();
+        const data = await res.json();
+        return data.user;
     } catch (err) {
         console.error("Network error:", err);
         throw new Error("Cannot reach server. Is the backend running?");

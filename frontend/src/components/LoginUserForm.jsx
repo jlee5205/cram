@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import AuthForm from './AuthForm';
 import { loginUser } from "../api/authApi";
+import { useNavigate } from "react-router-dom";
 
-function LoginUserForm() {
+function LoginUserForm( {setUser} ) {
+    const navigate = useNavigate();
+
     const [form, setForm] = useState({
         email: '',
         password: ''
@@ -22,10 +25,11 @@ function LoginUserForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            await loginUser(form);
-            alert("Login Successful!")
+            const user  = await loginUser(form);
+            setUser(user);
             setError(false);
-            setForm({email:'', password:''})
+            navigate("/spots");
+            // setForm({email:'', password:''})
         } catch (err) {
             setError("Login failed. Please try again.");
             setSuccess(false);

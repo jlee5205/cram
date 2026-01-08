@@ -1,9 +1,9 @@
 import LoginUserForm from "../components/LoginUserForm";
 
-function Login() {
+function Login( {setUser} ) {
     return (
         <div>
-            <LoginUserForm/>
+            <LoginUserForm setUser={setUser}/>
         </div>
     )
 }
