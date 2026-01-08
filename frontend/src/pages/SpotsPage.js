@@ -33,7 +33,7 @@ function SpotsPage(){
         <>
             <h1> Study Spots</h1>
             <CreateSpotForm onCreate={handleCreateSpot}/>
-            <SpotList spots={spots}/>
+            <SpotList spots={spots} setSpots={setSpots}/>
         </>
     );
 }

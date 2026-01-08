@@ -6,6 +6,8 @@ const router = express.Router();
 router.get('/', controller.getSpots);
 router.get('/:id', controller.getSpotById);
 router.post('/', controller.createSpot);
+router.delete('/:id', controller.deleteSpot);
+
 
 router.use('/:spotId/reviews', reviewRouter);
 module.exports = router;

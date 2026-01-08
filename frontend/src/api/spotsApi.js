@@ -27,5 +27,12 @@ export const createSpot = async (spot) => {
         console.error("Network error:", err);
         throw new Error("Cannot reach server. Is the backend running?");
     }
+}
 
+export const deleteSpot = async (id) =>{
+    const res = await fetch(`${BASE_URL}/${id}`, {
+        method : 'DELETE',
+    });
+    if (!res.ok) throw new Error("Failed to delete spot");
+    return res.json();
 }

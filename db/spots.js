@@ -8,6 +8,14 @@ const createSpot = async (spot) => {
     );
 }
 
+const deleteSpot = async (spot) => {
+    const { id } = spot;
+    return pool.query(
+        'DELETE FROM spots WHERE id = $1 RETURNING *',
+        [id]
+    );
+}
+
 //return id, name, # reviews, # avg 
 const getSpots = async () => {
     //can have different filters for difference orders
@@ -27,11 +35,12 @@ const getSpots = async () => {
 //return everything in row
 const getSpotById = async (spot) => {
     const { id } = spot;
-    return pool.query('SELECT * FROM spots WHERE id = ($1)', [id]);
+    return pool.query('SELECT * FROM spots WHERE id = $1', [id]);
 }
 
 module.exports = {
     createSpot,
+    deleteSpot,
     getSpots,
     getSpotById
 };

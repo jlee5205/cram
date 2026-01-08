@@ -13,6 +13,16 @@ const createSpot = async (req, res) => {
     }
 }
 
+const deleteSpot = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const result = await spotsDB.deleteSpot({id});
+        res.status(200).json({message: "spot deleted successfully", spot: result.rows[0]});
+    } catch (err){
+        res.status(500).json({error: err.message});
+    }
+}
+
 const getSpots = async (req, res) => {
     const result = await spotsDB.getSpots();
     res.json(result.rows);
@@ -23,8 +33,7 @@ const getSpotById = async (req, res) => {
         const { id } = req.params;
         const result = await spotsDB.getSpotById({id});
         res.status(201).json(result.rows[0]);
-    }
-    catch (err){
+    } catch (err){
         res.status(500).json({error: err.message});
     }
 
@@ -32,6 +41,7 @@ const getSpotById = async (req, res) => {
 
 module.exports = {
     createSpot,
+    deleteSpot,
     getSpots,
     getSpotById
 };
