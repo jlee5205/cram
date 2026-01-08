@@ -25,6 +25,7 @@ function LoginUserForm() {
             await loginUser(form);
             alert("Login Successful!")
             setError(false);
+            setForm({email:'', password:''})
         } catch (err) {
             setError("Login failed. Please try again.");
             setSuccess(false);
