@@ -1,9 +1,8 @@
-import SignupUserForm from "../components/SingupUserForm";
+import SignupUserForm from "../components/SignupUserForm";
 
 function Signup() {
     return (
         <div>
-            <h1> Signup </h1>
             <SignupUserForm/>
         </div>
     )

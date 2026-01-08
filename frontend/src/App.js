@@ -1,12 +1,13 @@
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
+
+import Header from "./components/Header";
+
 import SpotsPage from './pages/SpotsPage';
-import UsersPage from './pages/UsersPage';
 import SpotDetailsPage from  './pages/SpotDetailsPage';
 import Login from './pages/Login';
-import SignupUserForm from './components/SignupUserForm';
-import Header from "./components/Header";
+import Signup from './pages/Signup';
 
 function App() {
   const [users, setUser] = useState(null);
@@ -17,7 +18,7 @@ function App() {
         <Route path="/spots" element={<SpotsPage/>} />
         <Route path="/spots/:spotId" element={<SpotDetailsPage/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/signup" element={<SignupUserForm/>} />
+        <Route path="/signup" element={<Signup/>} />
       </Routes>
     </Router>
   );
