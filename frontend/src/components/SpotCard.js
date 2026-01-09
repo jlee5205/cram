@@ -1,10 +1,11 @@
 function SpotCard( {spot, onDelete} ){
     return (
         <li> 
-            <h3> {spot.name} ⭐ {spot.avgRating} </h3>
-            <button onClick={() => onDelete(spot.id)} style={{ backgroundColor: 'red', color: 'white' } }>
-                delete
-            </button>
+            <h3> {spot.name} ⭐ {spot.avgRating}
+                <button onClick={() => onDelete(spot.id)}  className="bg-red-500 px-2 py-1 rounded hover:bg-black-500">
+                    delete
+                </button>
+            </h3>
         </li>
     );
 }

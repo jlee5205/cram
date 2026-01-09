@@ -37,12 +37,46 @@ function LoginUserForm( {setUser} ) {
     }
 
     return (
-        <AuthForm title='Login' buttonText='login' onSubmit={handleSubmit}>
-            {success && <p className="success">Signup successful! 🎉</p>}
-            {error && <p className="error">{error}</p>}
-            <input name="email" value={form.email} onChange={handleChange} placeholder='Email'/>
-            <input name="password" type="password" value={form.password} onChange={handleChange} placeholder='Password'/>
-        </AuthForm>
+        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+            <div className="w-full max-w-md">
+                <AuthForm
+                 title='Login Page'
+                 buttonText='login'
+                 onSubmit={handleSubmit}
+                >
+                    {success && <p className="text-green-600 text-sm text-center"> {success} </p>}
+                    {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+
+                        {/* <label className="block text-sm font-medium mb-1">Email</label> */}
+                    <input 
+                        name="email"
+                        value={form.email}
+                        onChange={handleChange}
+                        placeholder='Email'
+                        className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500'
+                        required
+                    />
+                
+                    <input
+                        name="password"
+                        type="password"
+                        value={form.password}
+                        onChange={handleChange}
+                        placeholder='Password'
+                        className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500'
+                        required
+                    />
+                    
+                </AuthForm>
+                <p className='mt-4 text-center text-sm text-gray-600'> Don't have an account? {" "}
+                    <a href="/signup" className="text-red-500 hover:underline">
+                        Sign Up
+                    </a>
+                </p>
+
+            </div>
+        </div>
+
     )
 };
 
