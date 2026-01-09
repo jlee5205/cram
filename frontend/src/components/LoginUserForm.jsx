@@ -3,6 +3,10 @@ import AuthForm from './AuthForm';
 import { loginUser } from "../api/authApi";
 import { useNavigate } from "react-router-dom";
 
+import { Input } from "../components/ui/input";
+import { Label } from "../components/ui/label";
+// import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../components/ui/card";
+
 function LoginUserForm( {setUser} ) {
     const navigate = useNavigate();
 
@@ -46,24 +50,24 @@ function LoginUserForm( {setUser} ) {
                 >
                     {success && <p className="text-green-600 text-sm text-center"> {success} </p>}
                     {error && <p className="text-red-600 text-sm text-center">{error}</p>}
-
-                        {/* <label className="block text-sm font-medium mb-1">Email</label> */}
-                    <input 
+{/* 
+                    { <Label className="block text-sm font-medium mb-1">Email</Label> } */}
+                    <Input 
                         name="email"
                         value={form.email}
                         onChange={handleChange}
                         placeholder='Email'
-                        className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500'
+                        className='space-y-1'
                         required
                     />
                 
-                    <input
+                    <Input
                         name="password"
                         type="password"
                         value={form.password}
                         onChange={handleChange}
                         placeholder='Password'
-                        className='w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500'
+                        className='space-y-1 mt-2'
                         required
                     />
                     
@@ -77,7 +81,7 @@ function LoginUserForm( {setUser} ) {
             </div>
         </div>
 
-    )
+    ) 
 };
 
 export default LoginUserForm;

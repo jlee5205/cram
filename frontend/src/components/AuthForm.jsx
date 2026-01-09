@@ -1,3 +1,5 @@
+import { Button } from "../components/ui/button";
+
 function AuthForm( {title, buttonText, onSubmit, children }) {
     return (
         <form
@@ -10,10 +12,10 @@ function AuthForm( {title, buttonText, onSubmit, children }) {
             <div className="space-y-4">
                 {children}
             </div>
-            <button
+            <Button
              type="submit"
-             className="mt-4 w-full bg-red-500 text-white py- rounded-md font-semibold hover:bg-red-600 transition"
-            > {buttonText} </button>
+             className="w-full mt-4 bg-blue-500"
+            > {buttonText} </Button>
         </form>
     );
 }
