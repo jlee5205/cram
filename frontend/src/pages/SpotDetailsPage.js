@@ -193,7 +193,7 @@ function SpotDetailsPage() {
                 <h3 className="text-xl font-bold text-gray-900 mb-4">Write a Review</h3>
                 <Card>
                     <CardContent className="pt-6">
-                        <AddReviewForm onCreate={handleAddReview} />
+                        <AddReviewForm onCreate={handleAddReview} spot={spot} />
                     </CardContent>
                 </Card>
             </div>

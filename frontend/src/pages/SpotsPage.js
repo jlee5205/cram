@@ -32,8 +32,11 @@ function SpotsPage(){
     return (
         <>
             <h1> Study Spots</h1>
-            <CreateSpotForm onCreate={handleCreateSpot}/>
-            <SpotList spots={spots} setSpots={setSpots}/>
+            <div className="space-y-4">
+                <SpotList spots={spots} setSpots={setSpots}/>
+                <CreateSpotForm onCreate={handleCreateSpot}/>
+            </div>
+
         </>
     );
 }
