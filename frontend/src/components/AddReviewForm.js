@@ -21,8 +21,8 @@ function AddReviewForm( {onCreate} ){
     }
     return (
         <form onSubmit={ handleSubmit }>
-            <input name="rating" onChange={handleChange} />
-            <input name="comment" onChange={handleChange} />
+            <input name="rating" placeholder='rating' onChange={handleChange} />
+            <input name="comment" placeholder='comment' onChange={handleChange} />
             <button type="submit"> Create Review</button>
         </form>
     )

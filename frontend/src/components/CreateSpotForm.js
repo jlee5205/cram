@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AddressInputForm from "./AddressInputForm";
 
 function CreateSpotForm( {onCreate} ){
     const initialForm = {
@@ -32,6 +33,12 @@ function CreateSpotForm( {onCreate} ){
             <input name="type" value={form.type} onChange={handleChange} placeholder='type (Cafe, Library, Park)' />
             <input name="cost" value={form.cost} onChange={handleChange} placeholder='cost ($, $$, $$$)'/>
             <input type="checkbox" value={form.hasWifi} name="hadWifi" onChange={handleChange} placeholder='has wifi?' /> 
+        {/* <AddressInputForm
+        value={form.address}
+        onChange={(address) =>
+            setForm((p) => ({ ...p, address }))
+        }
+      /> */}
             <button type="submit">Create</button>
         </form>
     );

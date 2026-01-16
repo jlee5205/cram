@@ -23,6 +23,9 @@ const getSpots = async () => {
         `SELECT 
             s.id,
             s.name,
+            s.type,
+            s.cost,
+            s.has_wifi,
             COUNT(r.id) as review_count,
             COALESCE(AVG(r.rating), 0) as avg_rating 
         FROM spots s

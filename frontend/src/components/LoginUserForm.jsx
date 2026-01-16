@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
-// import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../components/ui/card";
+import { Button } from "../components/ui/button";
+import { Card, CardContent, CardAction, CardFooter, CardHeader, CardTitle, CardDescription } from "../components/ui/card";
 
 function LoginUserForm( {setUser} ) {
     const navigate = useNavigate();
@@ -41,45 +42,70 @@ function LoginUserForm( {setUser} ) {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
-            <div className="w-full max-w-md">
-                <AuthForm
-                 title='Login Page'
-                 buttonText='login'
-                 onSubmit={handleSubmit}
-                >
-                    {success && <p className="text-green-600 text-sm text-center"> {success} </p>}
-                    {error && <p className="text-red-600 text-sm text-center">{error}</p>}
-{/* 
-                    { <Label className="block text-sm font-medium mb-1">Email</Label> } */}
-                    <Input 
-                        name="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        placeholder='Email'
-                        className='space-y-1'
-                        required
-                    />
-                
-                    <Input
-                        name="password"
-                        type="password"
-                        value={form.password}
-                        onChange={handleChange}
-                        placeholder='Password'
-                        className='space-y-1 mt-2'
-                        required
-                    />
-                    
-                </AuthForm>
-                <p className='mt-4 text-center text-sm text-gray-600'> Don't have an account? {" "}
-                    <a href="/signup" className="text-red-500 hover:underline">
-                        Sign Up
-                    </a>
-                </p>
+        <div className="min-h-screen flex items-center justify-center">
+            <Card className="w-full max-w-sm">
+                <CardHeader>
+                    <CardTitle className="text-sm" >Login to your account</CardTitle>
+                    <CardDescription className='text-neutral-500'>
+                        Enter your email below to login to your account
+                    </CardDescription>
+                </CardHeader>
+                    {/* <CardAction>
+                        <Button variant="link">Sign Up</Button>
+                    </CardAction> */}
+                <CardContent>
+                    <AuthForm
+                        onSubmit={handleSubmit}
+                    >
+                        {success && <p className="text-green-600 text-sm text-center"> {success} </p>}
+                        {error && <p className="text-red-600 text-sm text-center">{error}</p>}
+    {/* 
+                        { <Label className="block text-sm font-medium mb-1">Email</Label> } */}
+                        <div className="flex flex-col gap-2">
+                            <div className="grid gap-2">
+                                <Label htmlFor="email">Email</Label>
+                                <Input 
+                                    name="email"
+                                    value={form.email}
+                                    onChange={handleChange}
+                                    placeholder='Email'
+                                    required
+                                />
+                            </div>
 
-            </div>
+                            <div className="grid gap-2">
+                                <div className="flex items-center">
+                                    <Label htmlFor="password">Password</Label>
+                                </div>
+                                <Input
+                                    name="password"
+                                    type="password"
+                                    value={form.password}
+                                    onChange={handleChange}
+                                    placeholder='Password'
+                                    required
+                                />
+                                <a
+                                href="#"
+                                className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                                >
+                                Forgot your password?
+                                </a>
+                            </div>
+                        </div>
+                        
+                    </AuthForm>
+                </CardContent>
+                <CardFooter className="flex-col gap-2">
+                    <p className='mt-4 text-center text-sm text-gray-600'> Don't have an account? {" "}
+                        <a href="/signup" className="text-red-500 hover:underline">
+                            Sign Up
+                        </a>
+                    </p>
+                </CardFooter>
+            </Card>
         </div>
+        
 
     ) 
 };
